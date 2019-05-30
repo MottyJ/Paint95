@@ -45,6 +45,9 @@
 
 
         var chosenColor = document.getElementById('picker').value;
+        document.getElementById('picker').onchange = function () {
+            chosenColor = this.value;
+        }
         var chosenShape;
     
 
