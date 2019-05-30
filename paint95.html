@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Paint95</title>
+
+    <link rel="stylesheet" href="./css/paint95.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="side-menu">
+            <ul>
+                <li><button id="new">New</button></li>
+                <li><button id="save">Save</button></li>
+                <li><button id="load">Load</button></li>
+            </ul>
+            <h3 class="menu-title">Tools</h3>
+            <ul>
+                <li><button id="shapes">Shapes</button></li>
+                <li><button id="colors">Colors</button></li>
+                <li><button id="sizes">Sizes</button></li>
+                <li><button id="eraser">Eraser</button></li>
+                <li><button id="color1" class="colors"></button></li>
+                <li><button id="color2" class="colors"></button></li>
+                <li><button id="color3" class="colors"></button></li>
+                <li><button id="color4" class="colors"></button></li>
+                <li><input type="color" id="picker"></li>
+            </ul>
+        </div>
+        <div class="canvas-wrapper">
+            <div class="canvas" id="canvas"></div>
+        </div>
+    </div>
+
+    <script src="js/paint95.js"></script>
+    <script>
+
+        var newCanvas = document.getElementById('new');
+        newCanvas.addEventListener('click', function () {
+            document.getElementById('canvas').innerHTML = "";
+        })
+
+
+        var chosenColor = document.getElementById('picker').value;
+        var chosenShape;
+    
+
+        document.querySelectorAll('.colors').forEach(function (x) {
+            x.addEventListener('click', function () {
+                var color = getComputedStyle(x).backgroundColor;
+                chosenColor = color;
+            });
+        })
+
+        var eraser = document.getElementById('eraser');
+        eraser.addEventListener('click', function () {
+            chosenColor = getComputedStyle(canvas).backgroundColor;
+        })
+
+        var colorPicker = document.getElementById('colors');
+        colorPicker.addEventListener('hover', function () {
+
+        })
+
+
+        var canvas = document.getElementById('canvas');
+        canvas.addEventListener('mousemove', function (event) {
+            if (event.buttons == 1) {
+                var newDiv = document.createElement('div');
+                newDiv.style.width = "10px";
+                newDiv.style.height = "10px";
+                newDiv.style.backgroundColor = chosenColor;
+                newDiv.style.position = "absolute";
+                newDiv.style.top = (event.clientY - canvas.offsetTop) + "px";
+                newDiv.style.left = (event.clientX - canvas.offsetLeft) + "px";
+                canvas.appendChild(newDiv);
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>
