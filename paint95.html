@@ -6,6 +6,7 @@
 
     <title>Paint95</title>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/balloon-css/0.5.0/balloon.min.css">
     <link rel="stylesheet" href="./css/paint95.css" />
 </head>
 
@@ -23,7 +24,7 @@
                 <li><button id="colors">Colors</button></li>
                 <li><button id="sizes">Sizes</button></li>
                 <li><button id="eraser">Eraser</button></li>
-                <li><button id="color1" class="colors"></button></li>
+                <li><button id="color1" data-balloon="Double click me to change to the color of the color picker! Click once more to select :)" data-balloon-pos="right" class="colors"></button></li>
                 <li><button id="color2" class="colors"></button></li>
                 <li><button id="color3" class="colors"></button></li>
                 <li><button id="color4" class="colors"></button></li>
@@ -74,6 +75,16 @@
         var colorPicker = document.getElementById('colors');
         colorPicker.addEventListener('hover', function () {
 
+        })
+
+        var saveCanvas = document.getElementById('save');
+        saveCanvas.addEventListener('click', function () {
+            localStorage.setItem('myCanvas', canvas.innerHTML);
+        })
+
+        var loadCanvas = document.getElementById('load');
+        loadCanvas.addEventListener('click', function () {
+            canvas.innerHTML = localStorage.getItem('myCanvas', canvas.innerHTML); 
         })
 
 
