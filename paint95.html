@@ -43,18 +43,26 @@
             document.getElementById('canvas').innerHTML = "";
         })
 
-
+        var newColor = "rbg (000,000,000)";
         var chosenColor = document.getElementById('picker').value;
         document.getElementById('picker').onchange = function () {
             chosenColor = this.value;
+            newColor = this.value;
         }
+
         var chosenShape;
-    
 
         document.querySelectorAll('.colors').forEach(function (x) {
             x.addEventListener('click', function () {
                 var color = getComputedStyle(x).backgroundColor;
                 chosenColor = color;
+            });
+        })
+
+        
+        document.querySelectorAll('.colors').forEach(function (x) {
+            x.addEventListener('dblclick', function () {
+                x.style.backgroundColor = newColor;
             });
         })
 
