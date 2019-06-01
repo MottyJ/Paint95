@@ -22,8 +22,12 @@
                 <button id="trash"></button>
             </div>
             <div class="twos">
+                <button id="brush"></button>
+                <button id="pencil"></button>
                 <button id="square"></button>
                 <button id="circle"></button>
+                <button id="square-o"></button>
+                <button id="circle-o"></button>
                 <button id="fill"></button>
                 <button id="eraser"></button>
             </div>
@@ -61,6 +65,29 @@
 
         var chosenShape;
 
+        var isSelected = 0;
+        var brush = document.getElementById('brush');
+        brush.addEventListener('click', function () {
+            canvas.style.cursor = "url('./img/brush.png') 0 32, auto";
+            isSelected = "brush";
+        })
+        
+        var pencil = document.getElementById('pencil');
+        pencil.addEventListener('click', function () {
+            canvas.style.cursor = "url('./img/pencil.png') 0 32, auto";
+            isSelected = "pencil";
+        })
+
+        var squareO = document.getElementById('square-o');
+        squareO.addEventListener('click', function () {
+            isSelected = "square-o"; 
+        })
+
+        var circleO = document.getElementById('circle-o');
+        circleO.addEventListener('click', function () {
+            isSelected = "circle-o"; 
+        })
+
         document.querySelectorAll('.colors').forEach(function (x) {
             x.addEventListener('click', function () {
                 var color = getComputedStyle(x).backgroundColor;
@@ -77,11 +104,12 @@
 
         var fill = document.getElementById('fill');
         fill.addEventListener('click', function () {
-            canvas.style.backgroundColor = newColor;
+            canvas.style.backgroundColor = chosenColor;
         })
 
         var eraser = document.getElementById('eraser');
         eraser.addEventListener('click', function () {
+            canvas.style.cursor = "url('./img/eraser.png') 0 32, auto";
             chosenColor = getComputedStyle(canvas).backgroundColor;
         })
 
@@ -98,12 +126,11 @@
 
         var canvas = document.getElementById('canvas');
         canvas.addEventListener('mousemove', function (event) {
-            if (event.buttons == 1) {
+            if (event.buttons == 1 && isSelected != 0) {
                 var newDiv = document.createElement('div');
-                newDiv.style.width = "10px";
-                newDiv.style.height = "10px";
+                newDiv.className = isSelected;
                 newDiv.style.backgroundColor = chosenColor;
-                newDiv.style.position = "absolute";
+                newDiv.style.border = "1px " + chosenColor + " solid";
                 newDiv.style.top = (event.clientY - canvas.offsetTop) + "px";
                 newDiv.style.left = (event.clientX - canvas.offsetLeft) + "px";
                 canvas.appendChild(newDiv);

@@ -47,7 +47,6 @@ body {
     border: black 1px solid;
     position: relative;
     overflow: hidden;
-    cursor: url('../img/paint-brush.png') 0 32, auto;
 }
 
 .side-menu button {
@@ -120,12 +119,28 @@ input[type="color" i] {
     background-image: url('../img/trash.png');
 }
 
+.side-menu button#brush {
+    background-image: url('../img/brush.png');
+}
+
+.side-menu button#pencil {
+    background-image: url('../img/pencil.png');
+}
+
 .side-menu button#square {
     background-image: url('../img/square.png');
 }
 
 .side-menu button#circle {
     background-image: url('../img/circle.png');
+}
+
+.side-menu button#square-o {
+    background-image: url('../img/square-o.png');
+}
+
+.side-menu button#circle-o {
+    background-image: url('../img/circle-o.png');
 }
 
 .side-menu button#fill {
@@ -136,11 +151,35 @@ input[type="color" i] {
     background-image: url('../img/eraser.png');
 }
 
-.side-menu button#shape {}
+.brush {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+}
 
-.side-menu button#color {}
+.pencil {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+}
 
-.side-menu button#size {}
+.square-o {
+    box-sizing: border-box;
+    width: 10px;
+    height: 10px;
+    border: 1px black solid;
+    background-color: transparent !important;
+    position: absolute;
+}
 
-.side-menu button#eraser {}
+.circle-o {
+    box-sizing: border-box;
+    width: 10px;
+    height: 10px;
+    border: 1px black solid;
+    border-radius: 50%;
+    background-color: transparent !important;
+    position: absolute;
+}
 
