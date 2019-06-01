@@ -15,6 +15,7 @@
 <body>
     <div class="container">
         <div class="side-menu">
+            <span id="canvas-title">Untitled</span>
             <div class="twos">
                 <button id="new"></button>
                 <button id="save"></button>
@@ -24,18 +25,15 @@
             <div class="twos">
                 <button id="brush"></button>
                 <button id="pencil"></button>
-                <button id="minus"></button>
-                <button id="plus"></button>
                 <button id="square-o"></button>
                 <button id="circle-o"></button>
                 <button id="fill"></button>
                 <button id="eraser"></button>
             </div>
             <div class="twos">
-                <button id="color1"
-                    data-balloon="Double click me to change to the color of the color picker! Click once more to select :)"
+                <button id="color1" data-balloon="Click me to select!" data-balloon-pos="right" class="colors"></button>
+                <button id="color2" data-balloon="Double click me to save the color of the color picker!"
                     data-balloon-pos="right" class="colors"></button>
-                <button id="color2" class="colors"></button>
                 <button id="color3" class="colors"></button>
                 <button id="color4" class="colors"></button>
                 <button id="color5" class="colors"></button>
@@ -49,96 +47,6 @@
     </div>
 
     <script src="js/paint95.js"></script>
-    <script>
-
-        var newCanvas = document.getElementById('new');
-        newCanvas.addEventListener('click', function () {
-            document.getElementById('canvas').innerHTML = "";
-        })
-
-        var newColor = "rbg (000,000,000)";
-        var chosenColor = document.getElementById('picker').value;
-        document.getElementById('picker').onchange = function () {
-            chosenColor = this.value;
-            newColor = this.value;
-        }
-
-        var chosenShape;
-
-        var isSelected = 0;
-        var brush = document.getElementById('brush');
-        brush.addEventListener('click', function () {
-            canvas.style.cursor = "url('./img/brush.png') 0 32, auto";
-            isSelected = "brush";
-        })
-        
-        var pencil = document.getElementById('pencil');
-        pencil.addEventListener('click', function () {
-            canvas.style.cursor = "url('./img/pencil.png') 0 32, auto";
-            isSelected = "pencil";
-        })
-
-        var squareO = document.getElementById('square-o');
-        squareO.addEventListener('click', function () {
-            isSelected = "square-o"; 
-        })
-
-        var circleO = document.getElementById('circle-o');
-        circleO.addEventListener('click', function () {
-            isSelected = "circle-o"; 
-        })
-
-        document.querySelectorAll('.colors').forEach(function (x) {
-            x.addEventListener('click', function () {
-                var color = getComputedStyle(x).backgroundColor;
-                chosenColor = color;
-            });
-        })
-
-
-        document.querySelectorAll('.colors').forEach(function (x) {
-            x.addEventListener('dblclick', function () {
-                x.style.backgroundColor = newColor;
-            });
-        })
-
-        var fill = document.getElementById('fill');
-        fill.addEventListener('click', function () {
-            canvas.style.backgroundColor = chosenColor;
-        })
-
-        var eraser = document.getElementById('eraser');
-        eraser.addEventListener('click', function () {
-            canvas.style.cursor = "url('./img/eraser.png') 0 32, auto";
-            chosenColor = getComputedStyle(canvas).backgroundColor;
-        })
-
-        var saveCanvas = document.getElementById('save');
-        saveCanvas.addEventListener('click', function () {
-            localStorage.setItem('myCanvas', canvasWrapper.innerHTML);
-        })
-
-        var loadCanvas = document.getElementById('load');
-        loadCanvas.addEventListener('click', function () {
-            canvasWrapper.innerHTML = localStorage.getItem('myCanvas', canvasWrapper.innerHTML);
-        })
-
-
-        var canvas = document.getElementById('canvas');
-        canvas.addEventListener('mousemove', function (event) {
-            if (event.buttons == 1 && isSelected != 0) {
-                var newDiv = document.createElement('div');
-                newDiv.className = isSelected;
-                newDiv.style.backgroundColor = chosenColor;
-                newDiv.style.border = "1px " + chosenColor + " solid";
-                newDiv.style.top = (event.clientY - canvas.offsetTop) + "px";
-                newDiv.style.left = (event.clientX - canvas.offsetLeft) + "px";
-                canvas.appendChild(newDiv);
-            }
-        });
-
-
-    </script>
 </body>
 
 </html>
