@@ -104,7 +104,7 @@ input[type="color" i] {
     padding: 1px 2px;
 }
 .side-menu button#new {
-    background-image: url('../img/plus.png');
+    background-image: url('../img/new.png');
 }
 
 .side-menu button#save {
@@ -127,12 +127,12 @@ input[type="color" i] {
     background-image: url('../img/pencil.png');
 }
 
-.side-menu button#square {
-    background-image: url('../img/square.png');
+.side-menu button#minus {
+    background-image: url('../img/minus.png');
 }
 
-.side-menu button#circle {
-    background-image: url('../img/circle.png');
+.side-menu button#plus {
+    background-image: url('../img/plus.png');
 }
 
 .side-menu button#square-o {

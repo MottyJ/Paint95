@@ -24,8 +24,8 @@
             <div class="twos">
                 <button id="brush"></button>
                 <button id="pencil"></button>
-                <button id="square"></button>
-                <button id="circle"></button>
+                <button id="minus"></button>
+                <button id="plus"></button>
                 <button id="square-o"></button>
                 <button id="circle-o"></button>
                 <button id="fill"></button>
@@ -43,7 +43,7 @@
             </div>
             <input type="color" id="picker">
         </div>
-        <div class="canvas-wrapper">
+        <div class="canvas-wrapper" id="canvasWrapper">
             <div class="canvas" id="canvas"></div>
         </div>
     </div>
@@ -115,12 +115,12 @@
 
         var saveCanvas = document.getElementById('save');
         saveCanvas.addEventListener('click', function () {
-            localStorage.setItem('myCanvas', canvas.innerHTML);
+            localStorage.setItem('myCanvas', canvasWrapper.innerHTML);
         })
 
         var loadCanvas = document.getElementById('load');
         loadCanvas.addEventListener('click', function () {
-            canvas.innerHTML = localStorage.getItem('myCanvas', canvas.innerHTML);
+            canvasWrapper.innerHTML = localStorage.getItem('myCanvas', canvasWrapper.innerHTML);
         })
 
 
