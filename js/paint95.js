@@ -60,11 +60,6 @@ pencil.addEventListener('click', function () {
     isSelected = "pencil";
 })
 
-var minus = document.getElementById('minus');
-minus.addEventListener('click', function () {
-    isSelected = isSelected + "";
-})
-
 var squareO = document.getElementById('square-o');
 squareO.addEventListener('click', function () {
     isSelected = "square-o";
