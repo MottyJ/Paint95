@@ -30,11 +30,12 @@ body {
 .canvas {
     height: 500px;
     width: 500px;
-    background-color: green;
+    background-color: white;
     box-sizing: border-box;
     border: black 1px solid;
     position: relative;
     overflow: hidden;
+    cursor: url('../img/paint-brush.png') 0 32, auto;
     
 }
 
