@@ -15,6 +15,18 @@ body {
     background-color: #bdbdbd;
     border: black 1px solid;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.twos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .canvas-wrapper {
@@ -36,27 +48,18 @@ body {
     position: relative;
     overflow: hidden;
     cursor: url('../img/paint-brush.png') 0 32, auto;
-    
-}
-
-.side-menu .menu-title {
-    text-align: center;
-}
-
-.side-menu ul {
-    list-style: none;
-    padding: 0;
-    box-sizing: border-box;
 }
 
 .side-menu button {
     color: black;
     background-color: #bdbdbd;
     font-size: 2rem;
-    margin: 5%;
-    width: 90%;
+    width: 50px;
+    height: 50px;
     cursor: pointer;
     box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .colors {
@@ -77,6 +80,60 @@ body {
 
 #color4 {
     background-color: lightgreen;
+}
+
+#color5 {
+    background-color: orangered;
+}
+
+#color6 {
+    background-color: palevioletred;
+}
+
+
+input[type="color" i] {
+    -webkit-appearance: square-button;
+    width: 50px;
+    height: 50px;
+    box-sizing: border-box;
+    background-color: buttonface;
+    cursor: default;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(169, 169, 169);
+    border-image: initial;
+    padding: 1px 2px;
+}
+.side-menu button#new {
+    background-image: url('../img/plus.png');
+}
+
+.side-menu button#save {
+    background-image: url('../img/save.png');
+}
+
+.side-menu button#load {
+    background-image: url('../img/load.png');
+}
+
+.side-menu button#trash {
+    background-image: url('../img/trash.png');
+}
+
+.side-menu button#square {
+    background-image: url('../img/square.png');
+}
+
+.side-menu button#circle {
+    background-image: url('../img/circle.png');
+}
+
+.side-menu button#fill {
+    background-image: url('../img/fill.png');
+}
+
+.side-menu button#eraser {
+    background-image: url('../img/eraser.png');
 }
 
 .side-menu button#shape {}

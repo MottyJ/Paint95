@@ -15,23 +15,29 @@
 <body>
     <div class="container">
         <div class="side-menu">
-            <ul>
-                <li><button id="new">New</button></li>
-                <li><button id="save">Save</button></li>
-                <li><button id="load">Load</button></li>
-            </ul>
-            <h3 class="menu-title">Tools</h3>
-            <ul>
-                <li><button id="shapes">Shapes</button></li>
-                <li><button id="colors">Colors</button></li>
-                <li><button id="sizes">Sizes</button></li>
-                <li><button id="eraser">Eraser</button></li>
-                <li><button id="color1" data-balloon="Double click me to change to the color of the color picker! Click once more to select :)" data-balloon-pos="right" class="colors"></button></li>
-                <li><button id="color2" class="colors"></button></li>
-                <li><button id="color3" class="colors"></button></li>
-                <li><button id="color4" class="colors"></button></li>
-                <li><input type="color" id="picker"></li>
-            </ul>
+            <div class="twos">
+                <button id="new"></button>
+                <button id="save"></button>
+                <button id="load"></button>
+                <button id="trash"></button>
+            </div>
+            <div class="twos">
+                <button id="square"></button>
+                <button id="circle"></button>
+                <button id="fill"></button>
+                <button id="eraser"></button>
+            </div>
+            <div class="twos">
+                <button id="color1"
+                    data-balloon="Double click me to change to the color of the color picker! Click once more to select :)"
+                    data-balloon-pos="right" class="colors"></button>
+                <button id="color2" class="colors"></button>
+                <button id="color3" class="colors"></button>
+                <button id="color4" class="colors"></button>
+                <button id="color5" class="colors"></button>
+                <button id="color6" class="colors"></button>
+            </div>
+            <input type="color" id="picker">
         </div>
         <div class="canvas-wrapper">
             <div class="canvas" id="canvas"></div>
@@ -62,21 +68,21 @@
             });
         })
 
-        
+
         document.querySelectorAll('.colors').forEach(function (x) {
             x.addEventListener('dblclick', function () {
                 x.style.backgroundColor = newColor;
             });
         })
 
+        var fill = document.getElementById('fill');
+        fill.addEventListener('click', function () {
+            canvas.style.backgroundColor = newColor;
+        })
+
         var eraser = document.getElementById('eraser');
         eraser.addEventListener('click', function () {
             chosenColor = getComputedStyle(canvas).backgroundColor;
-        })
-
-        var colorPicker = document.getElementById('colors');
-        colorPicker.addEventListener('hover', function () {
-
         })
 
         var saveCanvas = document.getElementById('save');
@@ -86,7 +92,7 @@
 
         var loadCanvas = document.getElementById('load');
         loadCanvas.addEventListener('click', function () {
-            canvas.innerHTML = localStorage.getItem('myCanvas', canvas.innerHTML); 
+            canvas.innerHTML = localStorage.getItem('myCanvas', canvas.innerHTML);
         })
 
 
